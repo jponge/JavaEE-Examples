@@ -16,13 +16,13 @@ import static java.util.Collections.unmodifiableList;
 public class TaskList {
 
     private String currentTask;
-    private final List<String> tasks = new ArrayList<String>();
-
-    {
-        tasks.add("Wash");
-        tasks.add("It");
-        tasks.add("Now");
-    }
+    private final List<String> tasks = new ArrayList<String>() {
+        {
+            add("Wash the dishes");
+            add("Make the next JVM language");
+            add("Get a better salary");
+        }
+    };
 
     public List<String> getTasks() {
         return unmodifiableList(tasks);

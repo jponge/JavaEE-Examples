@@ -1,22 +1,16 @@
 package taskee.beans;
 
-import javax.ejb.Local;
-import javax.ejb.Stateful;
 import javax.enterprise.context.SessionScoped;
 import javax.inject.Named;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
-import static java.util.Collections.unmodifiableList;
-
-@Local
 @Named
-@Stateful
 @SessionScoped
-public class TaskList {
+public class TaskList implements Serializable {
 
-    private String currentTask;
-    private final List<String> tasks = new ArrayList<String>() {
+    private List<String> tasks = new ArrayList<String>() {
         {
             add("Wash the dishes");
             add("Make the next JVM language");
@@ -25,24 +19,14 @@ public class TaskList {
     };
 
     public List<String> getTasks() {
-        return unmodifiableList(tasks);
+        return tasks;
     }
 
-    public String getCurrentTask() {
-        return currentTask;
+    public void add(String task) {
+        tasks.add(task);
     }
 
-    public void setCurrentTask(String currentTask) {
-        this.currentTask = currentTask;
-    }
-
-    public void add() {
-        tasks.add(currentTask);
-        currentTask = null;
-    }
-
-    public void remove() {
-        tasks.remove(currentTask);
-        currentTask = null;
+    public void remove(String task) {
+        tasks.remove(task);
     }
 }

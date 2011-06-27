@@ -9,7 +9,7 @@
 
 <form method="POST" action="tasks">
     <p>
-        <label for="item">New tasks:</label>
+        <label for="item">New task:</label>
         <input id="item" type="text" name="item"/>
         <input type="hidden" name="action" value="add"/>
         <input type="submit" value="add"/>

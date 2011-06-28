@@ -6,6 +6,8 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
+import static java.util.Collections.unmodifiableList;
+
 @Named
 @SessionScoped
 public class TaskList implements Serializable {
@@ -19,7 +21,7 @@ public class TaskList implements Serializable {
     };
 
     public List<String> getTasks() {
-        return tasks;
+        return unmodifiableList(tasks);
     }
 
     public void add(String task) {

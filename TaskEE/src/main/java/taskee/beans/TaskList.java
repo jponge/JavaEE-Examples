@@ -15,7 +15,7 @@ public class TaskList implements Serializable {
     private List<String> tasks = new ArrayList<String>() {
         {
             add("Wash the dishes");
-            add("Make the next JVM language");
+            add("Invent the next JVM language");
             add("Get a better salary");
         }
     };

@@ -61,12 +61,10 @@ public class TasksServlet extends HttpServlet {
     }
 
     private void handleRemoval(HttpServletRequest request) throws IOException, SystemException, NotSupportedException, RollbackException, HeuristicRollbackException, HeuristicMixedException {
-        String item = request.getParameter("item");
+        Long item = Long.valueOf(request.getParameter("item"));
         if (item != null) {
             transaction.begin();
-            Query query = entityManager.createQuery("select t from Task t where t.description = :description");
-            query.setParameter("description", item);
-            Task task = (Task) query.getSingleResult();
+            Task task = entityManager.find(Task.class, item);
             if (task != null) {
                 entityManager.remove(task);
                 transaction.commit();

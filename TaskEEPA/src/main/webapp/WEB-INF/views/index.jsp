@@ -22,7 +22,7 @@
     <tr>
         <form method="POST" action="tasks">
             <input type="hidden" name="action" value="remove"/>
-            <input type="hidden" name="item" value="<%= task.getDescription() %>"/>
+            <input type="hidden" name="item" value="<%= task.getId() %>"/>
             <td><%= task.getDescription() %></td>
             <td><input type="submit" value="remove"/></td>
         </form>
